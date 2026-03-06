@@ -1,0 +1,154 @@
+.dashboard-container {
+    padding: 10px;
+}
+
+.dashboard-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.header-title-wrapper {
+    background-color: #004b8d;
+    color: white;
+    padding: 10px 30px;
+    position: relative;
+    clip-path: polygon(0 0, 95% 0, 100% 50%, 95% 100%, 0 100%);
+}
+
+.header-title {
+    font-size: 1.5rem;
+    font-weight: 800;
+    margin: 0;
+}
+
+.tabs-container {
+    display: flex;
+    gap: 40px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ddd;
+}
+
+.tab {
+    padding: 12px 0;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #666;
+    background: none;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    text-transform: uppercase;
+}
+
+.tab.active {
+    color: #004b8d;
+}
+
+.tab.active::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background-color: #ff4d4f;
+}
+
+.announcement-card {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    padding: 20px;
+}
+
+.search-bar-wrapper {
+    position: relative;
+    margin-bottom: 25px;
+}
+
+.search-input {
+    width: 100%;
+    padding: 15px 15px 15px 45px;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.search-input:focus {
+    border-color: #004b8d;
+}
+
+.search-icon {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #999;
+}
+
+.announcement-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.announcement-table th {
+    background-color: #004b8d;
+    color: white;
+    text-align: left;
+    padding: 12px 15px;
+    font-size: 0.9rem;
+}
+
+.announcement-table td {
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+    font-size: 0.9rem;
+    vertical-align: top;
+}
+
+.announcement-table tr:hover {
+    background-color: #f9f9f9;
+}
+
+.announcement-title {
+    color: #0056b3;
+    font-weight: 500;
+    cursor: pointer;
+    line-height: 1.4;
+}
+
+.announcement-title:hover {
+    text-decoration: underline;
+}
+
+.sender-info,
+.time-info {
+    color: #555;
+    font-size: 0.85rem;
+    line-height: 1.4;
+}
+
+.fab {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 56px;
+    height: 56px;
+    background-color: #004b8d;
+    color: white;
+    border-radius: 50%;
+    border: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.fab:hover {
+    transform: scale(1.1);
+}

@@ -1,0 +1,15 @@
+.dashboard-layout {
+    display: flex;
+    min-height: 100vh;
+    background-color: #f4f7f9;
+}
+
+.main-content {
+    flex: 1;
+    margin-left: 280px;
+    /* Sidebar width */
+    margin-top: 60px;
+    /* Topbar height */
+    padding: 30px;
+    transition: all 0.3s ease;
+}
