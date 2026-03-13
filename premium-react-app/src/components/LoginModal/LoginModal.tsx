@@ -9,6 +9,7 @@ interface LoginModalProps {
 }
 
 export const LoginModal: React.FC<LoginModalProps> = ({ isOpen, onClose }) => {
+    const [role, setRole] = useState<'user' | 'admin'>('user');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [branch, setBranch] = useState('HCM');
@@ -21,12 +22,22 @@ export const LoginModal: React.FC<LoginModalProps> = ({ isOpen, onClose }) => {
         e.preventDefault();
         setError('');
 
-        if (email === '0383142877' && password === 'Trang@123') {
-            console.log('Đăng nhập thành công!');
-            onClose();
-            navigate('/dashboard');
+        if (role === 'user') {
+            if (email === '0383142877' && password === 'Trang@123') {
+                localStorage.setItem('userRole', 'user');
+                onClose();
+                navigate('/dashboard');
+            } else {
+                setError('Sai mật khẩu hoặc tài khoản Người dùng.');
+            }
         } else {
-            setError('Sai mật khẩu hoặc tài khoản. Vui lòng thử lại.');
+            if (email === '0337782571' && password === 'Quan@123') {
+                localStorage.setItem('userRole', 'admin');
+                onClose();
+                navigate('/dashboard');
+            } else {
+                setError('Sai mật khẩu hoặc tài khoản Quản trị viên.');
+            }
         }
     };
 
@@ -47,6 +58,21 @@ export const LoginModal: React.FC<LoginModalProps> = ({ isOpen, onClose }) => {
                     <div className="modal-form-panel">
                         <h2>Đăng Nhập</h2>
                         <p className="modal-subtitle">Chào mừng bạn trở lại hệ thống</p>
+
+                        <div className="role-selector">
+                            <button 
+                                className={`role-tab ${role === 'user' ? 'active' : ''}`}
+                                onClick={() => setRole('user')}
+                            >
+                                Người dùng
+                            </button>
+                            <button 
+                                className={`role-tab ${role === 'admin' ? 'active' : ''}`}
+                                onClick={() => setRole('admin')}
+                            >
+                                Quản trị viên
+                            </button>
+                        </div>
 
                         <form className="login-form" onSubmit={handleLogin}>
                             <div className="input-group">
